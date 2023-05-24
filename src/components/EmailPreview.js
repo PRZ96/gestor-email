@@ -1,4 +1,5 @@
 import React from "react";
+import { format, parse } from "date-fns";
 
 function EmailPreview({ selectedEmailId, emails, onEmailStatusChange }) {
   const handleStatusChange = (status) => {
@@ -6,25 +7,10 @@ function EmailPreview({ selectedEmailId, emails, onEmailStatusChange }) {
   };
 
   function formatDate(date) {
-    const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-  
-    const parts = date.split("/"); 
-    const month = parseInt(parts[0], 10); 
-    const day = parseInt(parts[1], 10);
-    return `${ months[month - 1]} ${day}`;
+    const objDate = parse(date, "M/d/yyyy", new Date());
+    const formatedDate = format(objDate, "EEEE, MMMM d");
+
+    return formatedDate;
   }
 
   const selectedEmail = emails.find((email) => email.id === selectedEmailId);
