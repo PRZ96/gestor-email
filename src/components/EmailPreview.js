@@ -5,6 +5,28 @@ function EmailPreview({ selectedEmailId, emails, onEmailStatusChange }) {
     onEmailStatusChange(selectedEmailId, status);
   };
 
+  function formatDate(date) {
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+  
+    const parts = date.split("/"); 
+    const month = parseInt(parts[0], 10); 
+    const day = parseInt(parts[1], 10);
+    return `${ months[month - 1]} ${day}`;
+  }
+
   const selectedEmail = emails.find((email) => email.id === selectedEmailId);
 
   if (!selectedEmail) {
@@ -35,9 +57,12 @@ function EmailPreview({ selectedEmailId, emails, onEmailStatusChange }) {
       </div>
       <div className="email-card">
         <div className="email-content">
-          <p className="from">
-            {selectedEmail.user} <span>&lt;{selectedEmail.from}&gt;</span>
-          </p>
+          <div className="content-header">
+            <p className="from">
+              {selectedEmail.user} <span>&lt;{selectedEmail.from}&gt;</span>
+            </p>
+            <p className="date">{formatDate(selectedEmail.date)}</p>
+          </div>
           <p className="body">{selectedEmail.body}</p>
           {/* {selectedEmail.attachements &&
             selectedEmail.attachements.length > 0 && (

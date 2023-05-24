@@ -133,12 +133,24 @@
 .email-preview .email-card .email-content {
   margin-inline: 50px;
 }
-.email-preview .email-card .email-content .from {
+.email-preview .email-card .email-content .content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.email-preview .email-card .email-content .content-header p {
+  margin: 0;
+}
+.email-preview .email-card .email-content .content-header .from {
   margin: 0;
   font-size: 16px;
 }
-.email-preview .email-card .email-content .from span {
+.email-preview .email-card .email-content .content-header .from span {
   color: #4990e2;
+}
+.email-preview .email-card .email-content .content-header .date {
+  font-size: 12px;
+  color: #9b9b9b;
 }
 .email-preview .email-card .email-content .body {
   margin-top: 20px;

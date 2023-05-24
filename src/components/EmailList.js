@@ -18,10 +18,10 @@ function formatDate(date) {
     "Dec",
   ];
 
-  const parts = date.split("/"); // Divide la date en [day, month , year]
-  const month = parseInt(parts[0], 10); // Obtiene month como número
-  const day = parseInt(parts[1], 10); // Obtiene day como número
-  return `${months[month - 1]} ${day}`; // Retorna el formato deseado: "month day"
+  const parts = date.split("/"); 
+  const month = parseInt(parts[0], 10); 
+  const day = parseInt(parts[1], 10); 
+  return `${months[month - 1]} ${day}`;
 }
 
 function formatDescription(description) {

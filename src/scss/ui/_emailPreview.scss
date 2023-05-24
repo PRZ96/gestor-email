@@ -52,11 +52,23 @@
         border-radius: 7px;
         .email-content {
             margin-inline: 50px;
-            .from {
-                margin: 0;
-                font-size: $email-preview-from-font-size;
-                span {
-                    color: $selected-bar;
+            .content-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                p {
+                    margin: 0;
+                }
+                .from {
+                    margin: 0;
+                    font-size: $email-preview-from-font-size;
+                    span {
+                        color: $selected-bar;
+                    }
+                }
+                .date {
+                    font-size: $email-preview-date-font-size;
+                    color: $email-short-description;
                 }
             }
             .body {
