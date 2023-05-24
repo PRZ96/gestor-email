@@ -1,0 +1,21 @@
+@use "./variables" as *;
+
+.filters {
+    padding: $email-padding;
+    display: flex;
+    justify-content: flex-end;
+    border: $borders;
+    background-color: $email-bg;
+    button {
+        border-width: 0;
+        background-color: transparent;
+        font-size: $email-filters-font-size;
+        &.active {
+            color: $selected-bar;
+        }
+        i {
+            margin-right: 3px;
+            font-size: 12px;
+        }
+    }
+}

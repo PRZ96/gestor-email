@@ -1,0 +1,64 @@
+@use "./variables" as *;
+
+.email-list {
+    padding: 0;
+    width: 320px;
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        background-color: $white;
+        border: $borders;
+        border-top: 0;
+    }
+    li {
+        cursor: pointer;
+        margin-bottom: 0;
+        border-bottom: $borders;
+        .emails {
+            position: relative;
+            height: 80px;
+            max-height: 80px;
+            box-sizing: border-box;
+            padding: $email-padding;
+            background-color: $white;
+            i.readed {
+                position: absolute;
+                top: 34px;
+                left: 3px;
+                color: $selected-color-icon;
+                font-size: 9px;
+            }
+            &.active {
+                background-color: $selected-email-bg;
+                border-left: $selected-border;
+            }
+            .heading {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+        &:first-child {
+            border-top: $borders;
+        }
+    }
+
+    p {
+        margin: 1px;
+        font-size: $email-list-font-size;
+        &.date {
+            font-size: $email-filters-font-size;
+            color: $email-short-description;
+        }
+        &.sender {
+            font-weight: $email-subject-font-weight;
+            i {
+                margin-right: 3px;
+            }
+        }
+        &.short-description {
+            color: $email-short-description;
+        }
+    }
+}
