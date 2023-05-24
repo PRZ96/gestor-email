@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
 
 function App() {
+
+  useEffect(() => {
+    fetch('/mail-data.json')
+      .then(response => response.json())
+      .then(data => {
+        const emailsWithId = data.map((email, index) => ({
+          ...email,
+          id: index + 1,
+        }));
+      })
+      .catch(error => console.log(error));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+
     </div>
   );
 }
